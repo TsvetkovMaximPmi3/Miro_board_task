@@ -38,12 +38,14 @@ if __name__ == '__main__':
                 if i+j == len(response.json()['data'])-1:
                     if response.json()['data'][i+j]['style']['backgroundColor'] == "#5396e6" or response.json()['data'][i+j]['style']['backgroundColor'] == "#ffffff":
                         listY.append(float(response.json()['data'][i + j]['y']))
-                        L.append(response.json()['data'][i + j]['text'])
+                        L.append(response.json()['data'][i + j]['text'][3:len(response.json()['data'][i+j]['text'])-4])
                     break
                 listY.append(float(response.json()['data'][i+j]['y']))
-                L.append(response.json()['data'][i+j]['text'])
+                L.append(response.json()['data'][i+j]['text'][3:len(response.json()['data'][i+j]['text'])-4])
+
                 j += 1
             d = {}
+
             for g in range(0, len(listY)):
                 if listY[g] in d.keys():
                     d[listY[g]].append(L[g])
@@ -56,6 +58,7 @@ if __name__ == '__main__':
             realres.append(res)
 
     print()
+
     for i in realres:
         print(i)
         #print()
