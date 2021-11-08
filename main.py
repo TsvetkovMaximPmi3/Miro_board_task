@@ -53,8 +53,10 @@ if __name__ == '__main__':
                     d[listY[g]] = list()
                     d[listY[g]].append(L[g])
             res = []
-            for v in d.values():
-                res.append(v)
+            list_keys = list(d.keys())
+            list_keys.sort()
+            for v in list_keys:
+                res.append(d[v])
             realres.append(res)
 
     print()
